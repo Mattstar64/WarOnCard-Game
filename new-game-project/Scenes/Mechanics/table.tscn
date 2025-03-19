@@ -1,0 +1,47 @@
+[gd_scene load_steps=5 format=3 uid="uid://cpc4ybtib1imf"]
+
+[ext_resource type="Script" path="res://Scripts/card_manager.gd" id="1_odth0"]
+[ext_resource type="PackedScene" uid="uid://covyb7yy2kdsv" path="res://Scenes/Mechanics/card.tscn" id="1_wh470"]
+[ext_resource type="Texture2D" uid="uid://ifqanps4o355" path="res://Resources/Image/Artwork/avenger.png" id="2_d2lv1"]
+[ext_resource type="Texture2D" uid="uid://da2f1mk80gfck" path="res://Resources/Image/Artwork/shieldman.png" id="3_q3xyh"]
+
+[node name="Table" type="Node2D"]
+
+[node name="Card manager" type="Node2D" parent="."]
+script = ExtResource("1_odth0")
+
+[node name="Card" parent="Card manager" instance=ExtResource("1_wh470")]
+position = Vector2(299, 399)
+selected_race = 1
+
+[node name="Card2" parent="Card manager" instance=ExtResource("1_wh470")]
+position = Vector2(424, 399)
+artwork = ExtResource("2_d2lv1")
+card_name = "MASterclass"
+card_description = "HELLLO WORLD"
+health = 10
+
+[node name="Card3" parent="Card manager" instance=ExtResource("1_wh470")]
+position = Vector2(299, 211)
+artwork = ExtResource("3_q3xyh")
+selected_race = 2
+selected_damage = 1
+
+[node name="Card4" parent="Card manager" instance=ExtResource("1_wh470")]
+position = Vector2(424, 211)
+selected_race = 3
+selected_damage = 2
+
+[node name="Card5" parent="Card manager" instance=ExtResource("1_wh470")]
+position = Vector2(548, 399)
+artwork = ExtResource("2_d2lv1")
+selected_race = 4
+card_name = "MASterclass"
+card_description = "HELLLO WORLD"
+health = 10
+
+[node name="Card6" parent="Card manager" instance=ExtResource("1_wh470")]
+position = Vector2(548, 211)
+artwork = ExtResource("3_q3xyh")
+selected_race = 5
+selected_damage = 2

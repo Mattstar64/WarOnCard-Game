@@ -1,0 +1,155 @@
+[gd_scene load_steps=14 format=3 uid="uid://covyb7yy2kdsv"]
+
+[ext_resource type="Script" path="res://Scripts/card.gd" id="1_f85kl"]
+[ext_resource type="Texture2D" uid="uid://7wbcyuq3kt75" path="res://Resources/Image/Artwork/archer.png" id="1_wyaab"]
+[ext_resource type="Texture2D" uid="uid://cbbj73s7v4g0b" path="res://Resources/Image/card.png" id="2_7vq2p"]
+[ext_resource type="Shader" path="res://Scripts/card.gdshader" id="2_ahyyn"]
+[ext_resource type="Texture2D" uid="uid://be1jad2wbhwr8" path="res://Resources/Image/heart.png" id="3_t08ys"]
+[ext_resource type="FontFile" uid="uid://dq5avgb6xv42m" path="res://Resources/Fonts/Pixel_operator/PixelOperator8-Bold.ttf" id="4_r6qil"]
+[ext_resource type="Script" path="res://Scripts/card_background.gd" id="5_hkioc"]
+[ext_resource type="Texture2D" uid="uid://db1q4iiwmxm6q" path="res://Resources/Image/sword.png" id="5_v7vpg"]
+[ext_resource type="Texture2D" uid="uid://bhvoqdi4fc604" path="res://Resources/Image/heal.png" id="6_cx5xj"]
+[ext_resource type="Texture2D" uid="uid://cuts652try7x6" path="res://Resources/Image/coin.png" id="7_rc5og"]
+[ext_resource type="FontFile" uid="uid://dukm7nygn8tsf" path="res://Resources/Fonts/Pixel_operator/PixelOperator8.ttf" id="8_kchse"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ihwse"]
+resource_local_to_scene = true
+shader = ExtResource("2_ahyyn")
+shader_parameter/find_color1 = null
+shader_parameter/target_color1 = null
+shader_parameter/find_color2 = null
+shader_parameter/target_color2 = null
+shader_parameter/find_color3 = null
+shader_parameter/target_color3 = null
+shader_parameter/find_color4 = null
+shader_parameter/target_color4 = null
+shader_parameter/find_color5 = null
+shader_parameter/target_color5 = null
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7bc2l"]
+size = Vector2(100, 160)
+
+[node name="Card" type="Node2D"]
+script = ExtResource("1_f85kl")
+
+[node name="Card artwork" type="Sprite2D" parent="."]
+position = Vector2(0, -40)
+texture = ExtResource("1_wyaab")
+
+[node name="Card background" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_ihwse")
+texture = ExtResource("2_7vq2p")
+script = ExtResource("5_hkioc")
+
+[node name="Stats" type="Node2D" parent="."]
+
+[node name="Health" type="Sprite2D" parent="Stats"]
+position = Vector2(38, -62)
+texture = ExtResource("3_t08ys")
+
+[node name="number" type="Label" parent="Stats/Health"]
+anchors_preset = -1
+anchor_left = -1.0
+anchor_top = 0.5
+anchor_right = -1.0
+anchor_bottom = 0.5
+offset_left = -10.0
+offset_top = -11.0
+offset_right = -2.0
+offset_bottom = 3.0
+theme_override_fonts/font = ExtResource("4_r6qil")
+theme_override_font_sizes/font_size = 8
+text = "0
+"
+autowrap_mode = 2
+
+[node name="Damage" type="Sprite2D" parent="Stats"]
+position = Vector2(39, -46)
+texture = ExtResource("5_v7vpg")
+
+[node name="number" type="Label" parent="Stats/Damage"]
+anchors_preset = -1
+anchor_left = -1.167
+anchor_top = 0.667
+anchor_right = -1.167
+anchor_bottom = 0.667
+offset_left = -9.996
+offset_top = -10.004
+offset_right = -1.996
+offset_bottom = 3.996
+theme_override_fonts/font = ExtResource("4_r6qil")
+theme_override_font_sizes/font_size = 8
+text = "0
+"
+
+[node name="Healing" type="Sprite2D" parent="Stats"]
+position = Vector2(39, -29)
+texture = ExtResource("6_cx5xj")
+
+[node name="number" type="Label" parent="Stats/Healing"]
+anchors_preset = -1
+anchor_left = -1.167
+anchor_top = 0.607
+anchor_right = -1.167
+anchor_bottom = 0.607
+offset_left = -9.996
+offset_top = -9.284
+offset_right = -1.996
+offset_bottom = 4.716
+theme_override_fonts/font = ExtResource("4_r6qil")
+theme_override_font_sizes/font_size = 8
+text = "0
+"
+
+[node name="Cost" type="Sprite2D" parent="Stats"]
+position = Vector2(39, -10)
+texture = ExtResource("7_rc5og")
+
+[node name="number" type="Label" parent="Stats/Cost"]
+anchors_preset = -1
+anchor_left = -1.167
+anchor_top = 0.668
+anchor_right = -1.167
+anchor_bottom = 0.668
+offset_left = -9.996
+offset_top = -10.016
+offset_right = -1.996
+offset_bottom = 3.984
+theme_override_fonts/font = ExtResource("4_r6qil")
+theme_override_font_sizes/font_size = 8
+text = "0
+"
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_7bc2l")
+
+[node name="Lower part" type="Node2D" parent="."]
+
+[node name="Card name" type="Label" parent="Lower part"]
+offset_left = -16.0
+offset_top = -2.0
+offset_right = 17.0
+offset_bottom = 21.0
+theme_override_fonts/font = ExtResource("4_r6qil")
+theme_override_font_sizes/font_size = 8
+text = "NAME"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="Card description" type="Label" parent="Lower part"]
+offset_left = -16.0
+offset_top = 14.0
+offset_right = 17.0
+offset_bottom = 37.0
+theme_override_fonts/font = ExtResource("8_kchse")
+theme_override_font_sizes/font_size = 8
+text = "Description"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[connection signal="mouse_entered" from="Area2D" to="." method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="Area2D" to="." method="_on_area_2d_mouse_exited"]
