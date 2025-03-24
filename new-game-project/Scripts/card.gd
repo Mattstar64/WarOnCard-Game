@@ -34,6 +34,9 @@ enum Damage_type {
 @export var healing:int = 0
 @export var cost:int = 4
 
+
+var starting_position
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	get_parent().connect_card_signal(self)
